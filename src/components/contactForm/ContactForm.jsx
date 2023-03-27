@@ -8,34 +8,19 @@ class ContactForm extends Component {
     number: '',
   };
 
-  handleNameChange = event => {
-    this.setState({ name: event.target.value });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { contacts, onAddContact } = this.props;
-    const isNameExist = contacts.find(
-      contact => contact.name.toLowerCase() === this.state.name.toLowerCase()
-    );
-
-    if (isNameExist) {
-      alert(`${this.state.name} is already in contacts`);
-      return;
-    }
-
     const newContact = {
       id: nanoid(),
       name: this.state.name,
       number: this.state.number,
     };
-
-    onAddContact(newContact);
+    this.props.onAddContact(newContact);
     this.setState({ name: '', number: '' });
-  };
-
-  handleNumberChange = event => {
-    this.setState({ number: event.target.value });
   };
 
   render() {
@@ -50,7 +35,7 @@ class ContactForm extends Component {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={this.state.name}
-          onChange={this.handleNameChange}
+          onChange={this.handleChange}
         />
         <label htmlFor="numberInput">Number: </label>
         <input
@@ -61,7 +46,7 @@ class ContactForm extends Component {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           value={this.state.number}
-          onChange={this.handleNumberChange}
+          onChange={this.handleChange}
         />
         <button type="submit" className={css.addBtn}>
           Add Contact
@@ -74,12 +59,5 @@ class ContactForm extends Component {
 export default ContactForm;
 
 ContactForm.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ).isRequired,
   onAddContact: PropTypes.func.isRequired,
 };
