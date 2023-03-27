@@ -1,0 +1,9 @@
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: aliceblue;
+  width: 300px;
+  padding: 30px;
+  margin-left: 20px;
+}

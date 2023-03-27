@@ -1,0 +1,18 @@
+.deleteBtn {
+  margin-right: 5px;
+  background: rgba(15, 15, 235, 0.877);
+  border-radius: 10px;
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-left: 10px;
+  /* padding: 5px; */
+}
+.deleteBtn:hover {
+  background-color: #ddebae;
+  color: rgba(15, 15, 235, 0.877);
+}
+.listItem {
+  width: 400px;
+}

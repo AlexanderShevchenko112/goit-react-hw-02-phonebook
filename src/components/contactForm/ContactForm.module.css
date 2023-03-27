@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 10px;
+  padding: 30px;
+  background-color: aliceblue;
+  margin-left: 20px;
+}
+.addBtn {
+  margin-right: 5px;
+  background: rgba(15, 15, 235, 0.877);
+  border-radius: 10px;
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  padding: 10px;
+}
+.addBtn:hover {
+  background-color: #ddebae;
+  color: rgba(15, 15, 235, 0.877);
+}
